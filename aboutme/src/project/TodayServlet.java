@@ -28,10 +28,10 @@ public class TodayServlet extends HttpServlet {
 		
 		out.print("<html>");
 		out.print("<head>");
-		out.print("<a href=index.html>메인화면</a><br>");
+		out.print("<a align=center href=index.html>메인화면</a><br>");
 		out.print("</head>");
 		out.print("<body>");
-		out.print("<p>현재시간 : " + date_format.format(date_now)+"</p>");
+		out.print("<p style=\"font-size:2em; margin-top: 25%\"; align=center>현재시간 : " + date_format.format(date_now)+"</p>");
 		out.print("</body>");
 		out.print("</html>");
 		

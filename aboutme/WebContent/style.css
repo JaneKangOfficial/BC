@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+header {
+	padding : 30px;
+	border : 5px solid green;
+}
+header > p > button {
+	width : 100px;
+	height: 35px;
+	font-size: 15px;
+	color: purple;
+}
+button {
+	background-color: #6fb7b7;
+	box-shadow: 0 8px 20px 0 rgba(0,0,0,0.5);
+	cursor: pointer;
+}
+nav  {
+	padding : 30px;
+	border : 5px solid blue;
+}
+nav > button {
+	1padding : 30px;
+	width : 100px;
+	height : 100px;
+	box-sizing : content-box;
+	1box-sizing : border-box;
+	font-size: 20px;
+	color: white;
+}
+/* nav > button:hover { 이렇게도 가능! ":" 의 앞뒤를 붙여야 한다. */
+.hover:hover {
+	color: #ffc045;
+}
+body {
+	text-align: center;
+	border : 1px solid gray;
+	background-color: white;
+}
+footer {
+	padding : 30px;
+	border : 5px solid red;
+	color : gray;
+}
+span {
+	display : block;
+}
+img {
+	width : 80%;
+	height: 80%;
+}
