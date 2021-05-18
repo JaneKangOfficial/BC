@@ -5,21 +5,24 @@
 <title>Insert title here</title>
 	<link href="style.css" type="text/css" rel="stylesheet" >
 	<style type="text/css">
-	nav  {
+	section  {
 		text-align: left;
 	}
-	nav > p {
-		1padding: 100px;
+	section > article {
+		padding: 30px;
+		1display: block;
 	}
-	nav > article > section {
-		float: right;
+	.img1 {
+		border-bottom: 1px solid black;
 	}
 	img {
 		width: 30%;
 		height: 30%;
 		border: 3px solid gray;
-		margin: 0 30px 30px;
+		margin: 0px 50px 0px 0px;
+		vertical-align: top;
 	}
+
 	</style>
 </head>
 <body>
@@ -33,24 +36,18 @@
 		</p>
 	</header>
 	
-	<nav>
-		<article>
-		<p>
-			<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg" align="top">
-		2021.0505.
-		</p>
-			<section>
-				<span>2021.01.01<br>이건 사진입니다.</span>
-			</section>
-		</article>
-		<hr>
-		<article>
+	<section>
+		<article class="img1">
 			<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg">
-			<section>
-				<span>2021.01.03<br>이건 사진2입니다.</span>
-			</section>
+			2021.05.05 줄 바꿔줘.. 
+			이건 사진입니다.
 		</article>
-	</nav>
+
+		<article>
+			<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg" align="top">
+			2021.10.05 이건 사진2입니다.
+		</article>
+	</section>
 	
 	<footer>
 		<span>crong@codesquad.kr</span>
