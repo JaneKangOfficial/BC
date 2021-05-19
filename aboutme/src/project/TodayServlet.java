@@ -24,7 +24,7 @@ public class TodayServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		Date date_now = new Date(System.currentTimeMillis());
-		SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		
 		out.print("<html>");
 		out.print("<head>");

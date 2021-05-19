@@ -5,22 +5,35 @@
 <title>Insert title here</title>
 	<link href="style.css" type="text/css" rel="stylesheet" >
 	<style type="text/css">
-	section  {
-		text-align: left;
+	.section_body  {
+		1text-align: left;
 	}
-	section > article {
+	.section_body > article {
 		padding: 30px;
 		1display: block;
 	}
 	.img1 {
-		border-bottom: 1px solid black;
+		border-bottom: 1px solid #c7cdcd;
 	}
 	img {
+		1width: 30%;
+		1height: 30%;
+		border: 3px solid gray;
+		1margin: 0px 50px 0px 0px;
+		vertical-align: top;
+	}
+	.img_part {
 		width: 30%;
 		height: 30%;
-		border: 3px solid gray;
-		margin: 0px 50px 0px 0px;
-		vertical-align: top;
+		1float: left;
+		1border: 3px solid yellow;
+	}
+	.text_part {
+		width: 65%;
+		height: 30%;
+		float: right;
+		1border: 3px solid yellow;
+		text-align: left;
 	}
 
 	</style>
@@ -36,16 +49,26 @@
 		</p>
 	</header>
 	
-	<section>
+	<section class="section_body">
 		<article class="img1">
-			<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg">
-			2021.05.05 줄 바꿔줘.. 
-			이건 사진입니다.
+			<section class="text_part">
+				<span>2021.05.05</span>
+				<p>이건 사진입니다.</p>
+			</section>
+			<section class="img_part">
+				<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg">
+			</section>
+			
 		</article>
 
 		<article>
-			<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg" align="top">
-			2021.10.05 이건 사진2입니다.
+			<section class="text_part">
+				<span>2021.10.05</span> 
+				<p>이건 사진2입니다.</p>
+			</section>
+			<section class="img_part">
+				<img src="https://pbs.twimg.com/profile_images/882884525457461249/IfqdQzac_400x400.jpg" align="top">
+			</section>
 		</article>
 	</section>
 	
