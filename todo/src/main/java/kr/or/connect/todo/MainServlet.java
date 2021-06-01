@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import kr.or.connect.todo.dao.TodoDao;
 import kr.or.connect.todo.dto.TodoDto;
+
 
 @WebServlet("/main")
 public class MainServlet extends HttpServlet {
@@ -31,23 +33,20 @@ public class MainServlet extends HttpServlet {
 		
 		List<TodoDto> list = dao.getTodos();
 		
+		request.setAttribute("list", list);
+		
+		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
+		rd.forward(request, response);
+		
+		/*
 		ObjectMapper objectMapper = new ObjectMapper();
 		String json = objectMapper.writeValueAsString(list);
 		
 		PrintWriter out = response.getWriter();
 		out.println(json);
 		out.close();
-	
+	*/
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
 
 }

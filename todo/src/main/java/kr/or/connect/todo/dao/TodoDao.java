@@ -65,13 +65,16 @@ public class TodoDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			System.out.println("드라이버 검색 성공!!!");
 		}catch(ClassNotFoundException ce) {
 			ce.printStackTrace();
+			System.out.println("드라이버 검색 실패!!!");
 		}
 		
 		String sql = "INSERT INTO todo(title, name, sequence) VALUES(?,?,?)";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
+			System.out.println("드라이버 접속 성공!!!");
 			ps.setString(1, todoDto.getTitle());
 			ps.setString(2, todoDto.getName());
 			ps.setInt(3, todoDto.getSequence());
@@ -80,47 +83,41 @@ public class TodoDao {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			System.out.println("드라이버 접속 실패!!!");
 		}
 		
 		return insertCount;
 	}
 	
-	
-	// try-with resource 이용 
-	public TodoDto getTodo(Integer id) {
-		TodoDto todo = null;
-		System.out.println("TodoDto getTodo");
+
+	public int updateTodo(TodoDto todoDto) {
+		int updateCount = 0;
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("드라이버 검색 성공!!!");
+		}catch(ClassNotFoundException ce) {
+			ce.printStackTrace();
+			System.out.println("드라이버 검색 실패!!!");
 		}
 		
-		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo WHERE id = ?";
-		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
-				PreparedStatement ps = conn.prepareCall(sql)) {
+		String sql = "UPDATE todo SET name = ?, regDate = ?, title = ?, type = ? WHERE id = ?";
+		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
+				PreparedStatement ps = conn.prepareStatement(sql)) {
+			System.out.println("드라이버 접속 성공!!!");
 			
-			ps.setInt(1, id);
+			ps.setString(1, todoDto.getName());
+			ps.setDate(2, todoDto.getRegdate());
+			ps.setString(3, todoDto.getTitle());
+			ps.setString(4, todoDto.getType());
 			
-			try (ResultSet rs = ps.executeQuery()) {
-				while(rs.next()) {
-					Integer todoId = rs.getInt("id");
-					String title = rs.getString("title");
-					String name = rs.getString("name");
-					Integer sequence = rs.getInt("sequence");
-					String type = rs.getString("type");
-					Date regdate = rs.getDate("regdate");
-					
-					todo = new TodoDto(todoId, title, name, sequence, type, regdate);
-				}
-			}catch (Exception e) {
-				e.printStackTrace();
-			}
+			updateCount = ps.executeUpdate();
+			
 		}catch (Exception e) {
+			System.out.println("드라이버 접속 실패!!!");
 			e.printStackTrace();
 		}
 		
-		return todo;
+		return updateCount;
 	}
 }
