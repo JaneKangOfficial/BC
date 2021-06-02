@@ -22,16 +22,16 @@ public class TodoDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("드라이버 검색 성공!!!");
+			System.out.println("드라이버 get 검색 성공!!!");
 		}catch(ClassNotFoundException ce) {
 			ce.printStackTrace();
-			System.out.println("드라이버 검색 실패!!!" + ce);
+			System.out.println("드라이버 get 검색 실패!!!" + ce);
 		}
 		
 		String sql = "SELECT id, title, name, sequence, type, regdate FROM todo ORDER BY regdate DESC";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
-			System.out.println("드라이버 접속 성공!!!");
+			System.out.println("드라이버 get 접속 성공!!!");
 			
 			try(ResultSet rs = ps.executeQuery()) {
 				
@@ -51,7 +51,7 @@ public class TodoDao {
 			}
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("드라이버 접속 실패!!!" + e);
+			System.out.println("드라이버 get 접속 실패!!!" + e);
 		}
 	
 		return list;
@@ -65,16 +65,16 @@ public class TodoDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("드라이버 검색 성공!!!");
+			System.out.println("드라이버 add 검색 성공!!!");
 		}catch(ClassNotFoundException ce) {
 			ce.printStackTrace();
-			System.out.println("드라이버 검색 실패!!!");
+			System.out.println("드라이버 add 검색 실패!!!");
 		}
 		
 		String sql = "INSERT INTO todo(title, name, sequence) VALUES(?,?,?)";
 		try (Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
-			System.out.println("드라이버 접속 성공!!!");
+			System.out.println("드라이버 add 접속 성공!!!");
 			ps.setString(1, todoDto.getTitle());
 			ps.setString(2, todoDto.getName());
 			ps.setInt(3, todoDto.getSequence());
@@ -83,7 +83,7 @@ public class TodoDao {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("드라이버 접속 실패!!!");
+			System.out.println("드라이버 add 접속 실패!!!"+e);
 		}
 		
 		return insertCount;
@@ -95,16 +95,16 @@ public class TodoDao {
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			System.out.println("드라이버 검색 성공!!!");
+			System.out.println("드라이버 update 검색 성공!!!");
 		}catch(ClassNotFoundException ce) {
 			ce.printStackTrace();
-			System.out.println("드라이버 검색 실패!!!");
+			System.out.println("드라이버 update 검색 실패!!!");
 		}
 		
 		String sql = "UPDATE todo SET name = ?, regDate = ?, title = ?, type = ? WHERE id = ?";
 		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
-			System.out.println("드라이버 접속 성공!!!");
+			System.out.println("드라이버 update 접속 성공!!!");
 			
 			ps.setString(1, todoDto.getName());
 			ps.setDate(2, todoDto.getRegdate());
@@ -114,8 +114,8 @@ public class TodoDao {
 			updateCount = ps.executeUpdate();
 			
 		}catch (Exception e) {
-			System.out.println("드라이버 접속 실패!!!");
 			e.printStackTrace();
+			System.out.println("드라이버 update 접속 실패!!!" + e);
 		}
 		
 		return updateCount;

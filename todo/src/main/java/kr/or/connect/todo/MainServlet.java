@@ -27,7 +27,7 @@ public class MainServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
-		response.setContentType("application/json");
+//		response.setContentType("application/json"); 
 		
 		TodoDao dao = new TodoDao();
 		
