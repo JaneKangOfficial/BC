@@ -31,14 +31,17 @@ public class todoTypeServlet extends HttpServlet {
 		
 		TodoDto dto = new TodoDto();
 		dto.setId(id);
+		
 		if(type.equals("TODO")) {
 			dto.setType("DOING");
-			
 		} else if (type.equals("DOING")) {
 			dto.setType("DONE");
+		} else if (type.equals("DONE")) {
+			dto.setType("TODO");
 		} else {
 			System.out.println("TYPE ERROR");
 		}
+		
 		System.out.println("DtoID : " + dto.getId());
 		System.out.println("DtoType : " + dto.getType());
 		

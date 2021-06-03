@@ -66,6 +66,7 @@
 		<c:forEach items="${list }" var = "item">
 		<tr>
 			<td>
+			<c:if test="${item.type eq 'TODO'}">
 				<input type="hidden" name="id" value="${item.id }" >
 				<input type="hidden" name="type" value="${item.type }" >
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
@@ -76,6 +77,37 @@
 				우선순위 : ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
+			</c:if>
+			</td>
+			
+			<td>
+			<c:if test="${item.type eq 'DOING'}">
+				<input type="hidden" name="id" value="${item.id }" >
+				<input type="hidden" name="type" value="${item.type }" >
+			<!--  -<c:set value="${item.id }" var="id" scope="request" />
+				<c:set value ="${item.type }" var="type" scope="request" />-->	
+				<h3>${item.title}</h3><br>
+				등록날짜 : ${item.regdate}, 
+				${item.name}, 
+				우선순위 : ${item.sequence}, 
+				<input type="submit" value="->">
+				<br>
+			</c:if>
+			</td>
+			
+			<td>
+			<c:if test="${item.type eq 'DONE'}">
+				<input type="hidden" name="id" value="${item.id }" >
+				<input type="hidden" name="type" value="${item.type }" >
+			<!--  -<c:set value="${item.id }" var="id" scope="request" />
+				<c:set value ="${item.type }" var="type" scope="request" />-->	
+				<h3>${item.title}</h3><br>
+				등록날짜 : ${item.regdate}, 
+				${item.name}, 
+				우선순위 : ${item.sequence}, 
+				<input type="submit" value="->">
+				<br>
+			</c:if>
 			</td>
 		</tr>
 		</c:forEach>
