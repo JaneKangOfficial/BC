@@ -101,15 +101,19 @@ public class TodoDao {
 			System.out.println("드라이버 update 검색 실패!!!");
 		}
 		
-		String sql = "UPDATE todo SET name = ?, regDate = ?, title = ?, type = ? WHERE id = ?";
+//		String sql = "UPDATE todo SET name = ?, regDate = ?, title = ?, type = ? WHERE id = ?";
+		String sql = "UPDATE todo SET type = ? WHERE id = ?";
 		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			System.out.println("드라이버 update 접속 성공!!!");
 			
-			ps.setString(1, todoDto.getName());
-			ps.setDate(2, todoDto.getRegdate());
-			ps.setString(3, todoDto.getTitle());
-			ps.setString(4, todoDto.getType());
+//			ps.setString(1, todoDto.getName());
+//			ps.setDate(2, todoDto.getRegdate());
+//			ps.setString(3, todoDto.getTitle());
+//			ps.setString(4, todoDto.getType());
+//			ps.setInt(5, todoDto.getId());
+			ps.setString(1, todoDto.getType());
+			ps.setInt(2, todoDto.getId());
 			
 			updateCount = ps.executeUpdate();
 			

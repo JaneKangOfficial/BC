@@ -48,15 +48,15 @@
 		
 		<div id="rank">
 			우선 순위를 선택하세요 <br>
-			<input type="radio" name="sequence" value=1 checked/> 1순위
-			<input type="radio" name="sequence" value=2/> 2순위
-			<input type="radio" name="sequence" value=3/> 3순위
+			<input type="radio" name="sequence" value=1 checked > 1순위
+			<input type="radio" name="sequence" value=2 > 2순위
+			<input type="radio" name="sequence" value=3 > 3순위
 		</div>
 		
 		<input type="submit" value="제출"/>
 		
-		<button class="hover" type="button" onClick="location.href='main'"> 이전 </button>
-		<input type='reset' value="초기화"/>
+		<button style="float: right;" class="hover" type="button" onClick="location.href='main'"> 이전 </button>
+		<input style="float: right;" type='reset' value="초기화"/>
 
 	</form>
 </section>

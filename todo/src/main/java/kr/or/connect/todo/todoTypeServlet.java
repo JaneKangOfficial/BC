@@ -20,34 +20,38 @@ public class todoTypeServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
 //		response.setContentType("application/json");
-		
+		System.out.println("TYPESERVLET1");
 		int id = Integer.parseInt(request.getParameter("id"));
 		String type = request.getParameter("type");
+		System.out.println("TYPESERVLET2");
 		
 		System.out.println("Type : " + type + " / ID : " + id);
 		
 		TodoDto dto = new TodoDto();
 		dto.setId(id);
-		
-		if(type == ("TODO")) {
+		if(type.equals("TODO")) {
 			dto.setType("DOING");
-		} else if (type == ("DOING")) {
+			
+		} else if (type.equals("DOING")) {
 			dto.setType("DONE");
+		} else {
+			System.out.println("TYPE ERROR");
 		}
+		System.out.println("DtoID : " + dto.getId());
+		System.out.println("DtoType : " + dto.getType());
 		
 		TodoDao dao = new TodoDao();
 		Object result = dao.updateTodo(dto);
 		
 		System.out.println("RESULT : " + result);
 		
-		response.sendRedirect("/main.jsp");
+		response.sendRedirect("/todo/main");		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		
 	}
 

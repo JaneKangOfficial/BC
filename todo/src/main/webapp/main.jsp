@@ -53,6 +53,7 @@
 	<br>
 </header>
 <section>
+<form action="/todo/todoType" method="get">
 <table>
 	<thead>
 		<tr>
@@ -65,14 +66,22 @@
 		<c:forEach items="${list }" var = "item">
 		<tr>
 			<td>
-				${item } 
-				<button class="hover" type="button" onClick="location.href='todoType'"> -> </button>
+				<input type="hidden" name="id" value="${item.id }" >
+				<input type="hidden" name="type" value="${item.type }" >
+			<!--  -<c:set value="${item.id }" var="id" scope="request" />
+				<c:set value ="${item.type }" var="type" scope="request" />-->	
+				<h3>${item.title}</h3><br>
+				등록날짜 : ${item.regdate}, 
+				${item.name}, 
+				우선순위 : ${item.sequence}, 
+				<input type="submit" value="->">
 				<br>
 			</td>
 		</tr>
 		</c:forEach>
 	</tbody>
-</table>		
+</table>	
+</form>	
 </section>
 	
 <%-- JSTL 

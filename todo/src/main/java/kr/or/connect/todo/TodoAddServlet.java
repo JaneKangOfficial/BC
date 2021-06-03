@@ -21,6 +21,9 @@ public class TodoAddServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
 //		response.setContentType("application/json");
 		
@@ -42,10 +45,7 @@ public class TodoAddServlet extends HttpServlet {
 
 		request.setAttribute("add", add);
 		
-		response.sendRedirect("/todo/main.jsp");
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect("/todo/main");
 	}
 
 
