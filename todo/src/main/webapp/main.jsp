@@ -54,101 +54,65 @@
 	<br>
 </header>
 <section>
-<table>
-	<thead>
-		<tr>
-			<th>TODO</th>
-			<th>DOING</th>
-			<th>DONE</th>
-		</tr>
-	</thead>
-	</tbody>
-		<c:forEach items="${list }" var = "item">
-		<tr>
-		<form action="/todo/todoType" method="get">
-			<td>
-			<c:if test="${item.type eq 'TODO'}">
-				<input type="hidden" name="id" value="${item.id }" >
-				<input type="hidden" name="type" value="${item.type }" >
-			<!--  -<c:set value="${item.id }" var="id" scope="request" />
-				<c:set value ="${item.type }" var="type" scope="request" />-->	
-				<h3>${item.title}</h3><br>
-				등록날짜 ${item.regdate}, 
-				${item.name}, 
-				우선순위 ${item.sequence}, 
-				<input type="submit" value="->">
-				<br>
-			</c:if>
-			</td>
-		</form>
-		
-		<form action="/todo/todoType" method="get" >
-			<td>
-			<c:if test="${item.type eq 'DOING'}">
-				<input type="hidden" name="id" value="${item.id }" >
-				<input type="hidden" name="type" value="${item.type }" >
-			<!--  -<c:set value="${item.id }" var="id" scope="request" />
-				<c:set value ="${item.type }" var="type" scope="request" />-->	
-				<h3>${item.title}</h3><br>
-				등록날짜 ${item.regdate}, 
-				${item.name}, 
-				우선순위 ${item.sequence}, 
-				<input type="submit" value="->">
-				<br>
-			</c:if>
-			</td>
-		</form>
+	<table>
+		<thead>
+			<tr>
+				<th>TODO</th>
+				<th>DOING</th>
+				<th>DONE</th>
+			</tr>
+		</thead>
+		</tbody>
+			<c:forEach items="${list }" var = "item">
+			<tr>
+			<form action="/todo/todoType" method="get">
+				<td>
+				<c:if test="${item.type eq 'TODO'}">
+					<input type="hidden" name="id" value="${item.id }" >
+					<input type="hidden" name="type" value="${item.type }" >
+					<h3>${item.title}</h3><br>
+					등록날짜 ${item.regdate}, 
+					${item.name}, 
+					우선순위 ${item.sequence}, 
+					<input type="submit" value="->">
+					<br>
+				</c:if>
+				</td>
+			</form>
 			
-		<form action="/todo/todoType" method="get">
-			<td>
-			<c:if test="${item.type eq 'DONE'}">
-				<input type="hidden" name="id" value="${item.id }" >
-				<input type="hidden" name="type" value="${item.type }" >
-			<!--  -<c:set value="${item.id }" var="id" scope="request" />
-				<c:set value ="${item.type }" var="type" scope="request" />-->	
-				<h3>${item.title}</h3><br>
-				등록날짜 ${item.regdate}, 
-				${item.name}, 
-				우선순위 ${item.sequence}, 
-				<input type="submit" value="->">
-				<br>
-			</c:if>
-			</td>
-		</form>
-		
-		</tr>
-		</c:forEach>
-	</tbody>
-</table>	
-</section>
-	
-<%-- JSTL 
-	<c:forEach items="${list }" var = "item">
-		${item } 
-		<br>
-	</c:forEach>
---%>
-
-<%-- EL  
-	${list[0]}
---%>
- 
-<%-- JAVA
-	<%
-		ArrayList<List> list = (ArrayList<List>)request.getAttribute("list");
-		
-		if(list != null) {
-			for(int i=0; i<list.size(); i++) {
+			<form action="/todo/todoType" method="get" >
+				<td>
+				<c:if test="${item.type eq 'DOING'}">
+					<input type="hidden" name="id" value="${item.id }" >
+					<input type="hidden" name="type" value="${item.type }" >
+					<h3>${item.title}</h3><br>
+					등록날짜 ${item.regdate}, 
+					${item.name}, 
+					우선순위 ${item.sequence}, 
+					<input type="submit" value="->">
+					<br>
+				</c:if>
+				</td>
+			</form>
 				
-				out.println(list.get(i));
-	%>
-		<br>		
-	<%
-			}
-		}
-	%>
- --%>
-
+			<form action="/todo/todoType" method="get">
+				<td>
+				<c:if test="${item.type eq 'DONE'}">
+					<input type="hidden" name="id" value="${item.id }" >
+					<input type="hidden" name="type" value="${item.type }" >
+					<h3>${item.title}</h3><br>
+					등록날짜 ${item.regdate}, 
+					${item.name}, 
+					우선순위 ${item.sequence}, 
+					<input type="submit" value="->">
+					<br>
+				</c:if>
+				</td>
+			</form>
+			</tr>
+			</c:forEach>
+		</tbody>
+	</table>	
+</section>
 </body>
 </html>
-

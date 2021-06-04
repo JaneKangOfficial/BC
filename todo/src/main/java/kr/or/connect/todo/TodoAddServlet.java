@@ -20,14 +20,10 @@ public class TodoAddServlet extends HttpServlet {
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setCharacterEncoding("utf-8");
-//		response.setContentType("application/json");
-		response.setContentType("text/html;charset=UTF-8");
 		
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		String title = request.getParameter("title");
 		String name = request.getParameter("name");
@@ -48,6 +44,4 @@ public class TodoAddServlet extends HttpServlet {
 		
 		response.sendRedirect("/todo/main");
 	}
-
-
 }

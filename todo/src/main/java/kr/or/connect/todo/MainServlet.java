@@ -26,8 +26,8 @@ public class MainServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		response.setCharacterEncoding("utf-8");
-//		response.setContentType("application/json"); 
 		response.setContentType("text/html;charset=UTF-8");
 		
 		TodoDao dao = new TodoDao();
@@ -38,16 +38,5 @@ public class MainServlet extends HttpServlet {
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/main.jsp");
 		rd.forward(request, response);
-		
-		/*
-		ObjectMapper objectMapper = new ObjectMapper();
-		String json = objectMapper.writeValueAsString(list);
-		
-		PrintWriter out = response.getWriter();
-		out.println(json);
-		out.close();
-	*/
 	}
-
-
 }

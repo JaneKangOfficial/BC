@@ -34,7 +34,6 @@ public class TodoDao {
 			System.out.println("드라이버 get 접속 성공!!!");
 			
 			try(ResultSet rs = ps.executeQuery()) {
-				
 				while(rs.next()) {
 					int id = rs.getInt("id");
 					String title = rs.getString("title");
@@ -53,10 +52,9 @@ public class TodoDao {
 			e.printStackTrace();
 			System.out.println("드라이버 get 접속 실패!!!" + e);
 		}
-	
+
 		return list;
 	}
-	
 	
 	// try-with resource 이용
 	public int addTodo(TodoDto todoDto) {
@@ -80,7 +78,6 @@ public class TodoDao {
 			ps.setInt(3, todoDto.getSequence());
 			
 			insertCount = ps.executeUpdate();
-			
 		}catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("드라이버 add 접속 실패!!!"+e);
@@ -88,7 +85,6 @@ public class TodoDao {
 		
 		return insertCount;
 	}
-	
 
 	public int updateTodo(TodoDto todoDto) {
 		int updateCount = 0;
@@ -101,22 +97,15 @@ public class TodoDao {
 			System.out.println("드라이버 update 검색 실패!!!");
 		}
 		
-//		String sql = "UPDATE todo SET name = ?, regDate = ?, title = ?, type = ? WHERE id = ?";
 		String sql = "UPDATE todo SET type = ? WHERE id = ?";
 		try(Connection conn = DriverManager.getConnection(dburl, dbUser, dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)) {
 			System.out.println("드라이버 update 접속 성공!!!");
 			
-//			ps.setString(1, todoDto.getName());
-//			ps.setDate(2, todoDto.getRegdate());
-//			ps.setString(3, todoDto.getTitle());
-//			ps.setString(4, todoDto.getType());
-//			ps.setInt(5, todoDto.getId());
 			ps.setString(1, todoDto.getType());
 			ps.setInt(2, todoDto.getId());
 			
 			updateCount = ps.executeUpdate();
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("드라이버 update 접속 실패!!!" + e);

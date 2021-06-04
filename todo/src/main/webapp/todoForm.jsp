@@ -62,8 +62,5 @@
 	</form>
 </section>
 
-<footer>
-</footer>
-
 </body>
 </html>

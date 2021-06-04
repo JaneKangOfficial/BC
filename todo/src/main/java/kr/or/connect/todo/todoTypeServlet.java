@@ -20,8 +20,8 @@ public class todoTypeServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		response.setCharacterEncoding("utf-8");
-//		response.setContentType("application/json");
 		response.setContentType("text/html;charset=UTF-8");
 		
 		System.out.println("TYPESERVLET1");
@@ -54,10 +54,4 @@ public class todoTypeServlet extends HttpServlet {
 		
 		response.sendRedirect("/todo/main");		
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		
-	}
-
 }
