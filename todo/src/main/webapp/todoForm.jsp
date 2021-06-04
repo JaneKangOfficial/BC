@@ -19,6 +19,7 @@
 	}
 	section {
 		padding: 30px;
+		border: solid 1px yellow;
 	}
 	footer {
 		padding: 30px;
@@ -38,12 +39,12 @@
 	
 		<div id="what">
 			어떤 일인가요? <br>
-			<input type="text" value="title" name="title"/>
+			<input type="text" value="" name="title"/>
 		</div>
 		
 		<div id="who">
 			누가 할 일인가요? <br>
-			<input type="text" value="name" name="name"/>
+			<input type="text" value="" name="name"/>
 		</div>
 		
 		<div id="rank">

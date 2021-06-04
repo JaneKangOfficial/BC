@@ -26,6 +26,7 @@ public class TodoAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("utf-8");
 //		response.setContentType("application/json");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		
 		String title = request.getParameter("title");

@@ -21,6 +21,7 @@ public class TodoFormServlet extends HttpServlet {
 		
 		response.setCharacterEncoding("utf-8");
 //		response.setContentType("application/json");
+		response.setContentType("text/html;charset=UTF-8");
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/todoForm.jsp");
 		rd.forward(request, response);

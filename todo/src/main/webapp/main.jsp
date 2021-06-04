@@ -6,6 +6,7 @@
 <%
 	ArrayList<List> list = (ArrayList<List>)request.getAttribute("list");
 	request.setAttribute("list", list);  
+	Collections.reverse(list);
 %>
 
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
 		padding: 30px;
 	}
 	table {
-		border: solid 1px blue;
+		border: solid 1px ;
 	}
 	th {
 		width: 25%;
@@ -42,7 +43,7 @@
 		width: 25%;
 		1height: 5%;
 		height: 80px;
-		border: solid 1px yellow;
+		border: solid 1px ;
 	}
 	</style>
 
@@ -72,16 +73,16 @@
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
 				<c:set value ="${item.type }" var="type" scope="request" />-->	
 				<h3>${item.title}</h3><br>
-				등록날짜 : ${item.regdate}, 
+				등록날짜 ${item.regdate}, 
 				${item.name}, 
-				우선순위 : ${item.sequence}, 
+				우선순위 ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
 			</c:if>
 			</td>
 		</form>
 		
-		<form action="/todo/todoType" method="get">
+		<form action="/todo/todoType" method="get" >
 			<td>
 			<c:if test="${item.type eq 'DOING'}">
 				<input type="hidden" name="id" value="${item.id }" >
@@ -89,9 +90,9 @@
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
 				<c:set value ="${item.type }" var="type" scope="request" />-->	
 				<h3>${item.title}</h3><br>
-				등록날짜 : ${item.regdate}, 
+				등록날짜 ${item.regdate}, 
 				${item.name}, 
-				우선순위 : ${item.sequence}, 
+				우선순위 ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
 			</c:if>
@@ -106,9 +107,9 @@
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
 				<c:set value ="${item.type }" var="type" scope="request" />-->	
 				<h3>${item.title}</h3><br>
-				등록날짜 : ${item.regdate}, 
+				등록날짜 ${item.regdate}, 
 				${item.name}, 
-				우선순위 : ${item.sequence}, 
+				우선순위 ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
 			</c:if>
@@ -150,3 +151,4 @@
 
 </body>
 </html>
+

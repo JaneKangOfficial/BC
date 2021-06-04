@@ -6,6 +6,7 @@
 <%
 	ArrayList<List> list = (ArrayList<List>)request.getAttribute("list");
 	request.setAttribute("list", list);  
+	Collections.reverse(list);
 %>
 
 <!DOCTYPE html>
@@ -53,7 +54,6 @@
 	<br>
 </header>
 <section>
-<form action="/todo/todoType" method="get">
 <table>
 	<thead>
 		<tr>
@@ -65,55 +65,61 @@
 	</tbody>
 		<c:forEach items="${list }" var = "item">
 		<tr>
+		<form action="/todo/todoType" method="get">
 			<td>
 			<c:if test="${item.type eq 'TODO'}">
 				<input type="hidden" name="id" value="${item.id }" >
-				<input type="hidden" name="type" value="${item.type }" >
+				<input type="text" name="type" value="${item.type }" >
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
 				<c:set value ="${item.type }" var="type" scope="request" />-->	
 				<h3>${item.title}</h3><br>
-				등록날짜 : ${item.regdate}, 
+				등록날짜 ${item.regdate}, 
 				${item.name}, 
-				우선순위 : ${item.sequence}, 
+				우선순위 ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
 			</c:if>
 			</td>
-			
+		</form>
+		
+		<form action="/todo/todoType" method="get" >
 			<td>
 			<c:if test="${item.type eq 'DOING'}">
 				<input type="hidden" name="id" value="${item.id }" >
-				<input type="hidden" name="type" value="${item.type }" >
+				<input type="text" name="type" value="${item.type }" >
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
 				<c:set value ="${item.type }" var="type" scope="request" />-->	
 				<h3>${item.title}</h3><br>
-				등록날짜 : ${item.regdate}, 
+				등록날짜 ${item.regdate}, 
 				${item.name}, 
-				우선순위 : ${item.sequence}, 
+				우선순위 ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
 			</c:if>
 			</td>
+		</form>
 			
+		<form action="/todo/todoType" method="get">
 			<td>
 			<c:if test="${item.type eq 'DONE'}">
 				<input type="hidden" name="id" value="${item.id }" >
-				<input type="hidden" name="type" value="${item.type }" >
+				<input type="text" name="type" value="${item.type }" >
 			<!--  -<c:set value="${item.id }" var="id" scope="request" />
 				<c:set value ="${item.type }" var="type" scope="request" />-->	
 				<h3>${item.title}</h3><br>
-				등록날짜 : ${item.regdate}, 
+				등록날짜 ${item.regdate}, 
 				${item.name}, 
-				우선순위 : ${item.sequence}, 
+				우선순위 ${item.sequence}, 
 				<input type="submit" value="->">
 				<br>
 			</c:if>
 			</td>
+		</form>
+		
 		</tr>
 		</c:forEach>
 	</tbody>
 </table>	
-</form>	
 </section>
 	
 <%-- JSTL 
@@ -145,3 +151,4 @@
 
 </body>
 </html>
+
