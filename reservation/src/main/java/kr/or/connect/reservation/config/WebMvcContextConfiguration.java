@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 // 기본적인 설정 자동 
 @EnableWebMvc
 // controller 읽어 오기 
-@ComponentScan(basePackages = { "kr.or.connect.guestbook.controller" })
+@ComponentScan(basePackages = { "kr.or.connect.reservation.controller" })
 public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
