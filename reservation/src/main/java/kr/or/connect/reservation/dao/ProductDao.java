@@ -29,6 +29,8 @@ public class ProductDao {
     public ProductDao(DataSource dataSource) {
     	System.out.println("ProductDao.java => ProductDao");
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
+        this.insertAction = new SimpleJdbcInsert(dataSource)
+				.withTableName("product");
     }
     
  // static import 사용으로 클래스 이름 선언없이 SELECT_ALL 바로 사용 
