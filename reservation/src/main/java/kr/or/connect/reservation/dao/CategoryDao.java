@@ -44,13 +44,13 @@ public class CategoryDao {
  		SqlParameterSource params = new BeanPropertySqlParameterSource(category);
  		return insertAction.execute(params);
  	}
- 	
+ /*	
  	public int update(Category category) {
  		System.out.println("CategoryDao.java => update");
  		SqlParameterSource params = new BeanPropertySqlParameterSource(category);
  		return jdbc.update(UPDATE, params);
  	}
- 	
+ */	
  	public int deleteById(Integer id) {
  		System.out.println("CategoryDao.java => deleteById");
  		Map<String, ?> params = Collections.singletonMap("id", id);

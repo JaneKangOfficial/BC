@@ -44,13 +44,13 @@ public class DisplayInfoDao {
  		SqlParameterSource params = new BeanPropertySqlParameterSource(displayInfo);
  		return insertAction.execute(params);
  	}
- 	
+/* 	
  	public int update(DisplayInfo displayInfo) {
  		System.out.println("DisplayInfoDao.java => update");
  		SqlParameterSource params = new BeanPropertySqlParameterSource(displayInfo);
  		return jdbc.update(UPDATE, params);
  	}
- 	
+*/ 	
  	public int deleteById(Integer id) {
  		System.out.println("DisplayInfoDao.java => deleteById");
  		Map<String, ?> params = Collections.singletonMap("id", id);

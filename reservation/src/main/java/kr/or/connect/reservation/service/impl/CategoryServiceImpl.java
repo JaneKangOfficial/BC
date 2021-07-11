@@ -18,8 +18,8 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	@Transactional	//read only
-	public List<Category> getCategorys() {
-		System.out.println("CategoryServiceImpl.java => getCategorys");
+	public List<Category> getCategoryList() {
+		System.out.println("CategoryServiceImpl.java => getCategoryList");
 		List<Category> list = categoryDao.selectAll();
 		return list;
 	}
@@ -34,14 +34,17 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Override
+	@Transactional(readOnly=false)
 	public int deleteCategory(Integer id) {
-		// TODO Auto-generated method stub
-		return 0;
+		System.out.println("CategoryServiceImpl.java => deleteCategory");
+		int deleteCategory = categoryDao.deleteById(id);
+		return deleteCategory;
 	}
 
 	@Override
 	public Category selectCategory(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("CategoryServiceImpl.java => selectCategory");
+		Category selectCategory = categoryDao.selectById(id);
+		return selectCategory;
 	}
 }

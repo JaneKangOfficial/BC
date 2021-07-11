@@ -1,6 +1,6 @@
 package kr.or.connect.reservation.dao;
 
-import static kr.or.connect.reservation.dao.sqls.CategoryDaoSqls.*;
+import static kr.or.connect.reservation.dao.sqls.FileInfoDaoSqls.*;
 
 import java.util.Collections;
 import java.util.List;

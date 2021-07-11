@@ -8,6 +8,6 @@ public class DisplayInfoImageDaoSqls {
 
 	public static final String DELETE_BY_ID = "DELETE FROM display_info_image WHERE id = :id";
 
-	public static final String SELECT_COUNT = "SELECT count(*) FROM display_info_image";
+//	public static final String SELECT_COUNT = "SELECT count(*) FROM display_info_image";
 	
 }
