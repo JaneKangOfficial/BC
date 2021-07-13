@@ -44,13 +44,13 @@ public class FileInfoDao {
  		SqlParameterSource params = new BeanPropertySqlParameterSource(fileInfo);
  		return insertAction.execute(params);
  	}
- 	
+ /*	
  	public int update(FileInfo fileInfo) {
  		System.out.println("FileInfoDao.java => update");
  		SqlParameterSource params = new BeanPropertySqlParameterSource(fileInfo);
  		return jdbc.update(UPDATE, params);
  	}
- 	
+ */	
  	public int deleteById(Integer id) {
  		System.out.println("FileInfoDao.java => deleteById");
  		Map<String, ?> params = Collections.singletonMap("id", id);
