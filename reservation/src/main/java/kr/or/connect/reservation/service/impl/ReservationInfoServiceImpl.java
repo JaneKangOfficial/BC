@@ -3,19 +3,21 @@ package kr.or.connect.reservation.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.or.connect.reservation.dao.ReservationInfoDao;
 import kr.or.connect.reservation.dto.ReservationInfo;
 import kr.or.connect.reservation.service.ReservationInfoService;
 
+@Service
 public class ReservationInfoServiceImpl implements ReservationInfoService{
 
 	@Autowired
 	ReservationInfoDao reservationInfoDao;
 
 	@Override
-	public List<ReservationInfo> getReservationInfoList() {
+	public List<ReservationInfo> getReservationInfoList(Integer id) {
 		System.out.println("ReservationInfoServiceImpl.java => getReservationInfoList");
 		List<ReservationInfo> list = reservationInfoDao.selectAll();
 		return list;
