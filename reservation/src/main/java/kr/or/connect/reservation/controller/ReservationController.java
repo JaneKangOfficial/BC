@@ -13,7 +13,7 @@ import kr.or.connect.reservation.dto.ReservationInfo;
 import kr.or.connect.reservation.service.ReservationInfoService;
 
 @Controller
-public class ReservationInfoController {
+public class ReservationController {
 	
 //	private static final Logger logger = LoggerFactory.getLogger(ReservationInfoController.class);
 
@@ -22,9 +22,10 @@ public class ReservationInfoController {
 	
 	@RequestMapping(value="/reservationInfo/list", method= {RequestMethod.GET, RequestMethod.POST})
 	public String list(@RequestParam(name="id", required=false, defaultValue = "0") int id, ModelMap modelMap) {
-		System.out.println("ReservationInfoController.java => list");
+		System.out.println("ReservationController.java => list");
 		
-		List<ReservationInfo> list = reservationInfoService.getReservationInfoList(id);
+//		List<ReservationInfo> list = reservationInfoService.getReservationInfoList(id);
+		List<ReservationInfo> list = reservationInfoService.getReservationInfoList();
 		
 		modelMap.addAttribute("list", list);
 		

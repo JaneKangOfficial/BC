@@ -17,7 +17,8 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	ReservationInfoDao reservationInfoDao;
 
 	@Override
-	public List<ReservationInfo> getReservationInfoList(Integer id) {
+//	public List<ReservationInfo> getReservationInfoList(Integer id) {
+	public List<ReservationInfo> getReservationInfoList() {
 		System.out.println("ReservationInfoServiceImpl.java => getReservationInfoList");
 		List<ReservationInfo> list = reservationInfoDao.selectAll();
 		return list;

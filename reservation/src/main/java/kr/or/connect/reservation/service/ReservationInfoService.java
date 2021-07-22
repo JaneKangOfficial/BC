@@ -6,7 +6,8 @@ import java.util.List;
 
 public interface ReservationInfoService {
 
-	public List<ReservationInfo> getReservationInfoList(Integer id);
+//	public List<ReservationInfo> getReservationInfoList(Integer id);
+	public List<ReservationInfo> getReservationInfoList();
 	public ReservationInfo addReservationInfo(ReservationInfo reservationInfo);
 	public int updateReservationInfo(ReservationInfo reservationInfo);
 	public int deleteReservationInfo(Integer id);
