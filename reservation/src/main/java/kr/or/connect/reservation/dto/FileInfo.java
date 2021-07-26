@@ -3,7 +3,7 @@ package kr.or.connect.reservation.dto;
 public class FileInfo {
 
 	private int id;
-	private String name;
+	private String fileName;
 	
 	public int getId() {
 		return id;
@@ -11,16 +11,16 @@ public class FileInfo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getName() {
-		return name;
+	public String getfileName() {
+		return fileName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setfileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	@Override
 	public String toString() {
-		return "FileInfo [id=" + id + ", name=" + name + "]";
+		return "FileInfo [id=" + id + ", fileName=" + fileName + "]";
 	}
 	
 }

@@ -29,6 +29,7 @@ public class ReservationController {
 		
 		modelMap.addAttribute("list", list);
 		
-		return "reservationInfo";
+		return "reserve";
+//		return "reservationInfo";
 	}
 }
