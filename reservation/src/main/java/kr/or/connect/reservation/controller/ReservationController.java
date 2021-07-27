@@ -1,35 +1,29 @@
 package kr.or.connect.reservation.controller;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import kr.or.connect.reservation.dto.ReservationInfo;
-import kr.or.connect.reservation.service.ReservationInfoService;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ReservationController {
-	
-//	private static final Logger logger = LoggerFactory.getLogger(ReservationInfoController.class);
 
-	@Autowired
-	ReservationInfoService reservationInfoService;
-	
-	@RequestMapping(value="/reservationInfo/list", method= {RequestMethod.GET, RequestMethod.POST})
-	public String list(@RequestParam(name="id", required=false, defaultValue = "0") int id, ModelMap modelMap) {
-		System.out.println("ReservationController.java => list");
-		
-//		List<ReservationInfo> list = reservationInfoService.getReservationInfoList(id);
-		List<ReservationInfo> list = reservationInfoService.getReservationInfoList();
-		
-		modelMap.addAttribute("list", list);
-		
-		return "reserve";
-//		return "reservationInfo";
+	@GetMapping(path="/mainpage")
+	public String showMainPage(HttpSession session) {
+		System.out.println("ReservationController.java => showMainPage");
+		return "mainpage";
 	}
+	
+	@GetMapping(path="/detail")
+	public String showDetail(HttpSession session) {
+		System.out.println("ReservationController.java => showDetail");
+		return "detail";
+	}
+	
+	@GetMapping(path="/reserve")
+	public String showReserve(HttpSession session) {
+		System.out.println("ReservationController.java => showReserve");
+		return "reserve";
+	}
+	
 }

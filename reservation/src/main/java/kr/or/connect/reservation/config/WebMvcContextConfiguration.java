@@ -26,7 +26,6 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(31556926);
         registry.addResourceHandler("/img/**").addResourceLocations("/img/").setCachePeriod(31556926);
         registry.addResourceHandler("/js/**").addResourceLocations("/js/").setCachePeriod(31556926);
-        registry.addResourceHandler("/html/**").addResourceLocations("/html/").setCachePeriod(31556926);
     }
  
     // default servlet handler를 사용하게 합니다. (mapping 정보가 없는 url 요청이 들어왔을 때 DefaultServletHttpRequesetHandler가 처리하도록 한다.) 
@@ -50,8 +49,7 @@ public class WebMvcContextConfiguration extends WebMvcConfigurerAdapter {
     	System.out.println("WebMvcContextConfiguration.java => InternalResourceViewResolver");
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".html");
-//        resolver.setSuffix(".jsp");
+        resolver.setSuffix(".jsp");
         return resolver;
     }
 	
